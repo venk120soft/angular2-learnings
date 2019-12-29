@@ -1,3 +1,24 @@
+What is the starting point of Angular Application?
+Angular Application starts from AppModule.
+AppModule is the root module which bootstraps and launches the angular application.
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { EmployeeComponent } from './employee/employee.component';
+
+@NgModule({
+  declarations: [ AppComponent ], // these are the list of components we havecreated in our application
+  imports: [ BrowserModule ], // these are the list of modules we have used in our entire application
+  providers: [], // these are the list of services we have created in our application
+  bootstrap: [AppComponent], // these are the list of  components we use when the application is launched
+})
+export class AppModule { }
+
+NgModule decarator adds meta data to angular module
+If class is decarated with @NgModule then that is called as angular module.
+
 What is a component in Angular 2
 A component in Angular is a class with a template and a decorator. So in simple terms a component in Angular is composed of these 3 things
 1. Template - Defines the user interface. Contains the HTML, directives and bindings.
