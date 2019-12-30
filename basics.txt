@@ -90,7 +90,7 @@ EventBinding: The Event binding can be done in two ways using (eventName) or on-
 <button (click)="onClick()">Click me</button> or <button on-click ="onClick()">Click me</button>
 
 Two way binding in Angular is done by combining proprty binding and event binding
-<input type="text" [(ngModel)] = 'name'/> // name is some property here 
+<input type="text" [(ngModel)] = 'name'/> // name is some property here and ngModel is present in FormsModule so we have to import first in app Modules
 
         <tr *ngFor='let employee of employees'>
             <td>{{employee.code}}</td>
@@ -137,3 +137,5 @@ class Employee implements IEmployee{
               public gender:string, public anualSalary:number, public dateOfBirth:string){
    }
 }
+
+What is ng-container and when to use it?
