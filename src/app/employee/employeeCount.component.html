@@ -1,0 +1,23 @@
+
+    <table>
+        <tr>
+            <td>
+                All( {{all}} )
+            </td>
+            <td>
+                <input type="radio" name="options" value="All" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChange()" />
+            </td>
+            <td>
+                Male( {{male}} )
+            </td>
+            <td>
+                <input type="radio" name="options" value="Male" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChange()"/>
+            </td>
+            <td>
+                FeMale( {{female}} )
+            </td>
+            <td>
+                <input type="radio" name="options" value="Female" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChange()" />
+            </td>
+        </tr>
+    </table>

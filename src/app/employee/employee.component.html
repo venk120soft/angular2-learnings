@@ -1,0 +1,37 @@
+<h1> Hello {{name}} </h1>
+<table>
+    <thead>
+        <tr>
+            <!-- <th attr.colspan="{{columnSpan}}"></th>  -->
+            <th [attr.colspan]="columnSpan">Employee Details</th>
+        </tr>    
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name: </td>
+            <td>{{firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td>{{lastName}}</td>
+        </tr>
+        <tr *ngIf='showDetails'>
+            <td>Gender: </td>
+            <td>{{gender}}</td>
+        </tr>
+        <tr *ngIf='showDetails'>
+            <td>Age:</td>
+            <td>{{age}}</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+<button (click)='toggleDetails()'>{{showDetails?'Hide':'Show' }} Details</button>
+<br/><br/>
+<h1>Two way data binding</h1>
+Name: 
+<!-- <input [value]='name' (input)='name=$event.target.value'/> -->
+<input [(ngModel)]='name'/>
+<br/>
+You entered: {{name}}
+<br/>
