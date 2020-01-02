@@ -1,0 +1,81 @@
+
+First, We need to install VSCode for code editing, Node and Npm 
+Verify that you are running at least node 8.x and npm 6.x by running 
+C:\Angular_Practice>node -v 
+C:\Angular_Practice>npm -v 
+To install the Angular CLI globally, run the following command on your console 
+C:\Angular_Practice>npm install -g @angular/cli
+
+From command line, run below command to create the new project: 
+ng new "my-ang-seven-app"  // it will create the application in new folder
+(or) ng init "my-ang-seven-app" // it will create the application in same folder
+
+It may ask you for routing options say y/n 
+It may ask you for stylesheet type you can choose CSS or your convinience
+Once this is done project will succussfully created then 
+C:\Angular_Practice>cd my-ang-seven-app
+C:\Angular_Practice\my-ang-seven-app>code .
+C:\Angular_Practice\my-ang-seven-app>ng serve
+
+This will build and start the node server on succussfull compilation of the project we can view the application 
+using http://localhost:4200/ in browser
+
+
+application will start from in
+
+if @angular/http throws an error
+npm install --save-dev @angular/http
+
+if map and catch for Observable<Response> wont work
+npm install --save rxjs-compat
+
+Dependency Injection?
+
+class MyComponent{
+private myService:MyService;
+
+constructor(_myService:MyService){
+this.myService=_myService
+}
+}
+//short hand syntax 
+class MyComponent{
+constructor(private _myService:MyService){}
+}
+
+When the MyComponent instance is created the angular injector create
+
+When an instance of the component is created, the angular injector creates an instance of the service class and provides it to component constructor
+
+how does angular ingector know about our service(MyService)?
+Ans: We should register our service in app level(in @NgModule => Providers:[MyService]) or 
+Component Level(in @Component => Providers:[MyService])
+1. We register a service with the angular injector by using the providers property of @Component decorator or @NgModule decorator.
+
+2.  When a component in Angular needs a service instance, it does not explicitly create it. Instead it just specifies it has a dependency on a service and needs an instance of it by including the service as a constructor parameter.
+
+3.  When an instance of the component is created, the angular injector creates an instance of the service class and provides it to component constructor.
+
+4. So the component which is dependent on a service instance, receives the instance from an external source rather than creating it itself. This is called Dependency Injection.
+
+What is Dependency Injection
+It's a coding pattern in which a class receives its dependencies from an external source rather than creating them itself.  
+
+On the other hand if we use Dependency Injection (DI), the angular injector provides a Singleton i.e a single instance of the service so the data and logic can be shared very easily across all the components.
+
+
+Difference between Observable and promise?
+
+Observable emits multiple values over a period of time where as Promise emits single value
+Promise is having 2 optional parameters 
+1) Onfullfilled : this callback function for onSuccess
+2) error: this callback function for onError
+
+Observable is having 3 optional parameters
+1) next : this callback function will be called after on success of 1st emiited value
+2) error: 
+3) complete:
+
+Promise is Not Lazy where as Observable is Lazy. Until we subscribe to the observer it wont load
+Promise can not be cancelled where as Promise can be cancelled by using the unsubscribe method
+Observable provides operators like map,filter, reduce, retryWhen.
