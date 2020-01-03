@@ -139,3 +139,34 @@ class Employee implements IEmployee{
 }
 
 What is ng-container and when to use it?
+
+How to impleent lazy loading in angular
+Components, that are not lazy-loaded are specified with a path and a component property. If we want to lazy load a module at a specific route, we do so by using the loadChildren property. Here we specify the path and the name of the module, separated by a #.
+
+export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'content' },
+  { path: 'content', component: ContentComponent },
+  {
+    path: 'login',
+    loadChildren: './authentication/authentication.module#AuthenticationModule',
+  },
+]
+
+Afterward, we can import the configured module in our AppModule. We also remove the import of our AuthenticationModule, since that is lazy loaded.
+import { routing } from './app.routing'
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+
+import { AppComponent } from './app.component'
+import { ContentComponent } from './content/content.component'
+
+@NgModule({
+  declarations: [AppComponent, ContentComponent],
+  imports: [
+    BrowserModule,
+    routing, //import routing
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
